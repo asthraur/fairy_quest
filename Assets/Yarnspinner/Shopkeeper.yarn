@@ -1,0 +1,26 @@
+﻿title: Shopkeeper_Quest
+---
+<<declare $pretty_medallion to false>>
+<<declare $worn_book to false>>
+<<declare $fancy_arrow to false>>
+<<declare $honey_brittle to false>>
+
+Brom: Greetings traveler. Take a look around. I can guarantee that something will peak your interest.
+    -> Honey Brittle \[2 coins\] <<if $coins >= 2>> 
+        <<set $coins to ($coins - 2)>>
+        <<set $honey_brittle to true>>
+        <color=\#db8f1d>\[Honey Brittle has been added to your inventory!\]</color>
+    -> Pretty Medallion \[2 coins\] <<if $coins >= 2>>
+        <<set $coins to ($coins - 2)>>
+        <<set $pretty_medallion to true>>
+        <color=\#db8f1d>\[A Pretty Medallion has been added to your inventory!\]</color>
+    -> Worn Book\[2 coins\] <<if $coins >= 2>>
+        <<set $coins to ($coins - 2)>>
+        <<set $worn_book to true>>
+        <color=\#db8f1d>\[A Worn Book has been added to your inventory!\]</color>
+    -> Fancy Arrow \[2 coins\] <<if $coins >= 2>>
+        <<set $coins to ($coins - 2)>>
+        <<set $fancy_arrow to true>>
+        <color=\#db8f1d>\[A Fancy Arrow has been added to your inventory!\]</color>
+    -> Don't buy anything and leave.
+===

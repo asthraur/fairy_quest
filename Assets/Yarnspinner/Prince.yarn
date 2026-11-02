@@ -1,0 +1,48 @@
+﻿// prince: usually arrogant, maybe snarky, expects everything to be handed to him, wealthy, wants to marry a princess, comes from far away
+// 
+// here (ideas): 
+// could remain arrogant and snobby while not really having the funds to back it up,
+// maybe has fallen out of favor with his family
+// his horse could be the arrogant one while the prince remains humble - prince is acting gracious while still putting the horse below himself by riding on it?
+// gives away all his wealth to people who just do their job/ do minute tasks for him and is basically a beggar at this point
+// 
+//here (final):
+// -> wants to do everything by himself to not appear like a spoiled prick, doesn't like to admit when he needs help, 
+// -> explains the precarious situation he has found himself in to the player but doesn't outright ask for help
+
+title: Prince_Quest
+---
+<<declare $ghanim_quest_accepted to false>>
+<<declare $talked_to_ghanim to false>>
+<<declare $line_view to true>>
+<<if $talked_to_ghanim is false>>
+    Prince Ghanim: Well would you look at that, a fellow adventurer passing through this winding forest. What brings you into these parts friend? You don't look like you are from 'round here. 
+    Prince Ghanim: Me? Oh, my exploits have led me right onto the doorstep of the king of this realm, as I intend to ask for his daughters hand in marriage today. 
+    Prince Ghanim: I have heard many stories about her vigour in battle and admire her bravery with the bated breath only a voyager like me could muster, who has seen the ways of the skirmish with his own eyes. 
+    Prince Ghanim: We will be right back on our way shortly. I have ran into some trouble. 
+    Prince Ghanim: You see, Aldieb has gained the ability to talk, a switch which happened quite out of the blue may I add, and seems to be unable to shut up about it ever since. 
+    Prince Ghanim: I don't know what has gotten into him, but has shown himself as very uncooperative and refuses to carry on our journey. But don't you fret, I've got this situation under control. 
+    Prince Ghanim: *appears lost as he looks around the dense forest*.
+<<else>>
+    Prince Ghanim: *appears lost as he looks around the dense forest*
+<<endif>>
+    -> Help him <<if $talked_to_aldieb is false>>
+        <<jump Prince_Accept>>
+    -> Ally with Prince Ghanim <<if $talked_to_aldieb is true && $aldieb_quest_completed is false>>
+    -> Carry on
+        <<jump Prince_Decline>>
+===
+
+title: Prince_Accept
+---
+Prince Ghanim: Oh, so you wish to offer me a helping hand? While I'm not really in need of charity and the likes, I do not wish to rob you of a good adventure. 
+Prince Ghanim: You could assist me in my search for the culprit of this bad joke and ask him to revert the spell he has put on my hoofed companion if you do. 
+Prince Ghanim: I will wait here, in case he comes back to the scene of his crime. But don't worry, your part of this operation is equally important to mine.
+<<set $ghanim_quest_accepted to true>>
+<<set $talked_to_ghanim to true>>
+===
+
+title: Prince_Decline
+---
+<<set $talked_to_ghanim to true>>
+===

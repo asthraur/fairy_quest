@@ -1,0 +1,73 @@
+﻿// trickster:
+// play tricks on other people for no particular reason other than their own amusement, cunning yet clumsy, try to provoke conflict, neither evil nor good
+// 
+// here (final):
+// sitting on top of a pile of stolen food - like a dragon on his pile of gold -> could act like a mighty dragon, while being a measly little guy
+
+title: TricksterFairy_Quest
+---
+<<declare $talked_to_fáfnir to false>>
+<<declare $fáfnir_quest_accepted to false>>
+<<declare $fáfnir_quest_completed to false>>
+
+<<if $talked_to_fáfnir is false>>
+    The Mighty Fafnir: You see, the king is holding a banquet tonight, yet somehow I managed to loose all my cargo - a wagon load full of food for the chefs to prepare. One moment it was there and then the next... POOF
+    The Mighty Fáfnir: Who dares enter my domain. I, the mighty Fáfnir, command thee to kneel before me and to bring forth the reason of your visit.
+        -> Tell him about the trouble he has caused.
+            <<jump TricksterFairy_Accept>>
+        -> Kneel deeply and back off into the woods.
+<<elseif $talked_to_fáfnir is true and $fáfnir_quest_completed is false>>
+     Fáfnir: You again? Make it quick.
+             -> Tell him about the trouble he has caused.
+                <<jump TricksterFairy_Accept>>
+            -> Kneel deeply and back off into the woods.
+                <<jump TricksterFairy_Decline>>
+<<elseif $talked_to_fáfnir is true and $fáfnir_quest_completed is true>>
+    <<jump TricksterFairy_Quest_Completed>>
+<<endif>>
+===
+
+title: TricksterFairy_Accept
+---
+The Mighty Fáfnir: TROUBLE? YOU DARE CALLING MY WORKINGS TROUBLE? You're lucky that you're catching me on my good side today. 
+The Mighty Fáfnir: Just look at all those riches spread out before your eyes and really think about what you are calling "trouble" right now. Such a juvenile word to describe the treasures of the world glistening under the sun! 
+The Mighty Fáfnir: *he points at the oily chicken thigh beneath his boot* I only wish there was some honey brittle too, but I guess the king isn't fond of it.
+    -> Offer him a piece of <color=\#db8f1d>honey brittle</color>. <<if $honey_brittle is true>>
+        <<jump TricksterFairy_Honey_Brittle>>
+    -> Suggest that he could make you solve a riddle.
+        <<jump TricksterFairy_Riddle>>
+    -> Run off into the woods and don't look back.
+===
+
+title: TricksterFairy_Decline
+---
+The Mighty Fáfnir: Run off my minion and do not return!
+===
+
+title: TricksterFairy_Honey_Brittle
+---
+<<set $fáfnir_quest_completed to true>>
+<<if $safa_quest_accepted is true>>
+    Fáfnir: Huh?! This can't be! Why do you just carry that around? AAAAAA you have found my weakness^. Please hand it over and I will relocate my den at the soonest occasion.
+        -> Ask him to return the food he has stolen.
+            <<set $wagon_load_of_food to true>>
+            Fáfnir: *eying his treasures reluctantly, then sighs* Alright, alright. There is nothing more embarrassing than a dragon who refuses to admit when he has been slain. Go on, take it with you and do it quickly. 
+            Fáfnir: I don't think I can deal with this humiliation much longer.
+            <color=\#db8f1d>\[A wagon load of food has been added to your inventory!\]</color>
+            <color=\#db8f1d>\[You have passed the kings first trial!\]</color>
+<<else>>
+    Fáfnir: Huh?! This can't be! Why do you just carry that around? AAAAAA you have found my weakness^. Please hand it over and I will relocate my den at the soonest occasion.
+    <color=\#db8f1d>\[You have passed the kings first trial!\]</color>
+<<endif>>
+===
+
+title: TricksterFairy_Riddle
+---
+Fáfnir: da muss ich mir noch eins ausdenken -.-
+<<set $fáfnir_quest_completed to true>>
+===
+
+title: TricksterFairy_Quest_Completed
+---
+Fáfnir: Yummy yummy in my tummy! *nom nom nom*
+===

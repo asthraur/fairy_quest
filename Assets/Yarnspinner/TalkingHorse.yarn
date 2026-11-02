@@ -1,0 +1,64 @@
+﻿
+// horse:
+// riding animal, loyal, strong, proud, like carrots, can ride really fast and for long periods of time, share a special bond with their rider
+//
+// here (ideas):
+// he could be week and really is just pretty to look at but doesn't ride very fast/ cana't carry the weight of the prince for very long
+// has higher ambitions than carrying around the "good-for-nothing" prince while he pretends to be a capable member of society
+// 
+// here (final):
+// -> has a strong dislike for the prince, is upset to have been taken on this grand adventure since the horse is used to a very cushy life at the court
+// -> is happy to finally be able to tell the prince a piece of his mind
+
+title: TalkingHorse_Quest
+---
+<<declare $talked_to_aldieb to false>>
+<<declare $aldieb_quest_completed to false>>
+
+<<if $aldieb_quest_completed is false>>
+    <<if $talked_to_aldieb is false>>
+        Aldieb: Don't believe a word the airhead over there is saying. He is no grand adventurer, just a fool who refuses to accept what he truly is - a spoiled good-for-nothing.
+        Aldieb:  And I am sick and tried of carrying him from one failed quest to the next. I was not made for this life of dirt roads and steep hillsides. I miss my cushy box. Please just leave me be as I am now. 
+        Aldieb: I don't know why I am able to say all of these words out loud all of a sudden, but it certainly feels lethargic to finally be able to give this prick a piece of my mind.
+    <<else>>
+        Aldieb: Oh, have you changed your mind?
+    <<endif>>
+        -> Ally with the horse. \[cancels out the agreement you had with Prince Ghanim\] <<if $ghanim_quest_accepted is true>>
+            <<jump TalkingHorse_Accept>>
+        -> Ally with the horse. <<if $ghanim_quest_accepted is false>>
+            <<jump TalkingHorse_Accept>>
+        -> Ask the horse to seize its sulking. <<if $ghanim_quest_accepted is true>>
+            <<jump TalkingHorse_Decline>>
+        -> Listen to both sides first. <<if $talked_to_ghanim is false>>
+        -> Stay out of this feud. <<if $talked_to_ghanim is true>>
+        <<set $talked_to_aldieb to true>>
+<<else>>
+    <<if $safa_bonus_accepted is false>>
+        Aldieb: I owe you my freedom, kind traveler. This fool is never going to find out how to break this spell on his own. Come to me if you need my assistance at any time. I am in your dept.
+    <<elseif $safa_bonus_accepted is true>>
+        Aldieb: Is there something I can assist you with, mistress?
+            -> Ask him to talk to Adones.
+                <<jump TalkingHorse_Safa_Accept>>
+    <<endif>>
+<<endif>>
+===
+
+title: TalkingHorse_Accept
+---
+Aldieb: Thank you so much, my fair maiden. I owe you a favor in return for your allegiance, so do not hesitate to ask for my help should the situation arise.
+<<set $aldieb_quest_completed to true>>
+<<set $ghanim_quest_accepted to false>>
+===
+
+title: TalkingHorse_Decline
+---
+Aldieb: Sulking? I am terribly sorry, but I don't think it is fair to expect me to carry around this man who is not only a burden to society but also to my back. 
+Aldieb: I finally have a voice and it has encouraged me to stand up for myself. You will need to wring this voice from me if you want me to seize my protests. 
+Aldieb: *looks into the distance with the glimmer of revolution in his eyes*.
+===
+
+title: TalkingHorse_Safa_Accept
+---
+<<set $safa_bonus_completed to true>>
+Aldieb: As you wish. I will go talk to him at once.
+===

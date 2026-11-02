@@ -1,0 +1,110 @@
+title: Stableboy_Quest
+---
+<<declare $safa_quest_accepted to false>>
+<<declare $safa_already_talked to false>>
+<<declare $safa_quest_completed to false>>
+<<declare $wagon_load_of_food to false>>
+
+<<declare $safa_already_talked_bonus to false>>
+<<declare $safa_bonus_accepted to false>>
+<<declare $safa_bonus_decline to false>>
+<<declare $safa_bonus_completed to false>>
+
+<<declare $safa_final to false>>
+
+<<if $safa_already_talked is false>>
+    Safa: Oh good, finally somehow followed my mourning call. Did the king send you? Oh I sure hope he didn't. If he finds out about this mess, I'm going to be in big trouble. 
+    Safa: You see, the king is holding a banquet tonight, yet somehow I managed to loose all my cargo - a wagon load full of food for the chefs to prepare. One moment it was there and then the next... POOF #line:Pen_v1_wav
+    Safa: All gone, all gone and in its stead a giant heap of very pretty rocks which Adones here can't seem to move. And now I'm stuck out here. How embarrassing. 
+    Safa: You won't think less of me if I ask for a helping hand here, will you?
+        -> Help him
+            <<jump Stableboy_Accept>>
+        -> Make fun of him
+            <<jump Stableboy_Decline>>
+<<elseif $safa_final is true>>
+    <<jump Stableboy_Final>>
+<<elseif $safa_quest_completed is true>>
+    <<jump Stableboy_Bonus_Quest>>
+<<elseif $safa_quest_accepted is true and $wagon_load_of_food is false>>
+    <<jump Stableboy_Already_Accepted>>
+<<elseif $safa_quest_accepted is true and $wagon_load_of_food is true>>
+    <<jump Stableboy_Quest_Completed>>
+<<elseif $safa_quest_accepted is false and $safa_already_talked is true>>
+    Safa: *grumpy* I think I've had enough of your jokes for one day.
+<<endif>>
+===
+
+title: Stableboy_Accept
+---
+<<set $safa_quest_accepted to true>>
+<<set $safa_already_talked to true>>
+Safa: Hmm I didn't really plan ahead for this scenario. I won't lie, I didn't expect anyone to help me. Maybe go looking around the forest for clues or something, I don't know. 
+Safa: I'll be waiting right here for your return and unload those darn rocks. Why do they all look the exact same anyway?
+===
+
+title: Stableboy_Decline
+---
+<<set $safa_already_talked to true>>
+Safa: How rude. Neither I nor poor Sisyphos deserved that remark?
+===
+
+title: Stableboy_Already_Accepted
+---
+Safa: Please hurry, something feels.. weeeird about the forest today. Not that I'm scared or anything!
+===
+
+title: Stableboy_Quest_Completed
+---
+<<set $safa_quest_completed to true>>
+Safa: Oh golly, somebody pinch me for I must be dreaming! Where did you find all of this? I never doubted you for a second, don't get me wrong.
+But I must admit did I didn't expect you to return ALL of it. I wish I had more time for talk, but I best get going. I'm already so terribly late.
+Thanks again for helping me out! 
+===
+
+title: Stableboy_Bonus_Quest
+---
+<<if $safa_already_talked_bonus is false>>
+    <<set $safa_already_talked_bonus to true>>
+    Safa: Hmmm.. *scratches his head* I don't know what's wrong with Adones. He won't move an inch from where he is standing. 
+    Safa: Maybe he thinks the wagon is still heavy with stones. How silly of him. I don't have time for horse-sillyness right now. 
+    Safa: We need to deliver this food to the king by nightfall. You don't speak horse-ish by chance?
+        -> Tell him that you will take care of it.
+            <<jump Stableboy_Bonus_Accept>>
+        -> "No I not speak horse-ish."
+            <<jump Stableboy_Bonus_Decline>>
+<<elseif $safa_bonus_completed is true>>
+    <<jump Stableboy_Bonus_Completed>>
+<<elseif $safa_already_talked_bonus is true and $safa_bonus_accepted is true>>
+    Safa: How are the negotiations going? Is he being reasonable?
+<<elseif $safa_already_talked_bonus is true and $safa_bonus_accepted is false>>
+    Safa: Either you get a move on or we are done being business partners! You hear me, Adones?
+<<endif>>
+===
+
+title: Stableboy_Bonus_Accept
+---
+<<set $safa_bonus_accepted to true>>
+Safa: Really? You're a real life saver!
+===
+
+title: Stableboy_Bonus_Decline
+---
+Safa: Ah, too bad. It's always good to know a second language.
+===
+
+title: Stableboy_Bonus_Completed
+---
+<<set $safa_final to true>>
+Safa: You won't believe what just happened! This smug looking horse just walked up to Adones and they started neighing with each other. 
+Safa: I guess he must have talked some sense into him, because it seems like Adones can't hit the road fast enough now. 
+Safa: I don't know how you did it, but I assume this was your doing somehow. Here, take this. It's only a fraction of the price the king is going to pay for this delivery.
+    <<set $coins += 2>>
+===
+
+title: Stableboy_Final
+---
+Safa: I'm just making sure I've got everything.
+===
+
+
+

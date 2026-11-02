@@ -1,0 +1,73 @@
+﻿
+// rock collector:
+// collects special rocks, unique looking rocks, many different rocks; usually has a lot of them, has been collecting for a long time, knowledgeable about rocks
+
+// here (final):
+// could have a collection of rocks that all look the same and uninteresting who'm he treats like his children/friends
+
+title: RockFairy_Quest
+---
+<<declare $talked_to_bimb to false>>
+<<declare $bimb_quest_accepted to false>>
+<<declare $rocks to false>>
+<<declare $bimb_quest_completed to false>>
+
+<<if $talked_to_bimb is false>>
+    Bimb: *sulking* Oh, hey. I'm sorry, I'm not in the mood for talking right now. My dear rocks seem to have abandoned me. 
+    Bimb: I thought I was taking good care of them, but they must have been unhappy if they just up and left, right? *sighs* If you would excuse me now, I need to get started on their missing-person poster. 
+    Bimb: Hmmm which one should I choose for the picture? Maybe Rocco, or Cooper? Oh but Pebbles used to be so photogenic.. *ponders*
+        -> Offer to help with the search.
+            <<jump RockFairy_Accept>>
+        -> Wish Bimb good luck and be on your way.
+            <<jump RockFairy_Decline>>
+<<elseif $talked_to_bimb is true>>
+    <<if $bimb_quest_completed is false>>
+        <<jump RockFairy_Already_Talked>>
+    <<else>>
+        <<jump RockFairy_Final>>
+    <<endif>>
+<<endif>>
+===
+
+title: RockFairy_Accept
+---
+Bimb: Oh golly! You would do that for me? You've got a kind heart, just like Rocco. *sighs* Oh, how I miss Rocco..
+<<set $talked_to_bimb to true>>
+<<set $bimb_quest_accepted to true>>
+===
+
+title: RockFairy_Decline
+---
+Bimb: Oh, thanks. Don't worry, I will find them in no time once the poster is hung up on my tree over there. *he looks, indeed, very worried himself*
+<<set $talked_to_bimb to true>>
+===
+
+title: RockFairy_Already_Talked
+---
+<<if $bimb_quest_accepted is true and $rocks is false>>
+    Bimb: I really hope we can find them. It took me so long to collect them. Some people say that all rocks look the same, but I found it very difficult to find so many rocks that actually do look the same. 
+    Bimb: I wonder where the people who say stuff like that are getting their rocks from.
+<<elseif $bimb_quest_accepted is true and $rocks is true>>
+    <<jump RockFairy_Quest_Completed>>
+<<elseif $bimb_quest_accepted is false>>
+    Bimb: *is quietly making a poor drawing of an unremarkable rock*
+        -> Offer to help with the search.
+            <<jump RockFairy_Accept>>
+        -> Don't interrupt.
+            <<jump RockFairy_Decline>>
+<<endif>>
+===
+
+title: RockFairy_Quest_Completed
+---
+<<set $bimb_quest_completed to true>>
+Bimb: OH HEAVENS, where did you find them? *tears start to well up in his eyes* They're all here! Mossy, Chip, Spike and - OH GOLLY, you even found Rocco! 
+Bimb: First we will celebrate, but there will be a rough talking to later. I can't just have them running of like that and then pretend it never happened. 
+Bimb: They need to be disciplined from time to time, even if I am not particularly good at that. Here, take this as small token of my gratitude.
+<<set $coins += 1>>
+===
+
+title: RockFairy_Final
+---
+Bimb: *He doesn't notice you as he is currently occupied with putting little party-hats on all of his rocks*
+===

@@ -1,0 +1,106 @@
+﻿
+// fisherman: 
+// patient, knowledgeable about fish, probably sell the fish for profit, hobbyist, know how to swim
+//
+// here (final):
+// fairy doesn't know how to swim and envies the fish for their ability to do so (maybe she has fuzzy, moth-like wings that get really heavy when they get wet)
+// she therefore "hunts" fish just because she doesn't like them - is fishing neither for sport nor for profit but simply to see the fear in their eyes
+// it's a little bit creepy how cruel she is for such a arbitrary reason
+// since she doesn't know how to swim and is scared to go near water for that reason, she is just fishing in the woods -> no deeper logic to how the hell that actually works
+
+title: FishingFairy_Quest
+---
+<<declare $perch_quest_accepted to false>>
+<<declare $perch_quest_completed to false>>
+<<declare $talked_to_perch to false>>
+
+<<declare $fancy_cake to false>>
+<<declare $loaf_of_bread to false>>
+<<declare $roast_chicken to false>>
+
+<<declare $perch_small_fish to false>>
+<<declare $perch_medium_fish to false>>
+<<declare $perch_large_fish to false>>
+
+<<declare $fancy_cake_given to false>>
+<<declare $loaf_of_bread_given to false>>
+<<declare $roast_chicken_given to false>>
+
+<<declare $small_fish to false>>
+<<declare $medium_fish to false>>
+<<declare $large_fish to false>>
+
+<<if $talked_to_perch is false>>
+    Perch: *yelling* PSSSSSSSSST.. 
+    Perch: *whispers* Don't be so loud! You are scaring away all the fish. Those sly little bastards think they are so slick with their stupid fins and dead eyes. You're not special for being able to swim! 
+    Perch: Hell, it's the only thing you're good for anyways. Who would ever be envious of that? Certainly not me. Oh, right.. I forgot you were still here. 
+    Perch: You better get going now, somehow the fish aren't biting today and you're presence certainly isn't helping.
+        -> Offer to bring her bait
+            <<jump FishingFairy_Accept>>
+        -> Make fun of her for fishing in the middle of the woods
+            <<jump FishingFairy_Decline>>
+<<elseif $talked_to_perch is true and $perch_quest_accepted is true and $perch_quest_completed is false>>
+    <<jump FishingFairy_Already_Accepted>>
+<<elseif $perch_quest_accepted is true>>
+    <<jump FishingFairy_Quest_Completed>>
+<<elseif $talked_to_perch is true and $perch_quest_accepted is false>>
+    Perch: Go bother someone else. I'm busy teaching these buggers a lesson.
+<<endif>>
+===
+
+title: FishingFairy_Accept
+---
+Perch: Hmmm, you might be onto something with that. Alright then, I'll be here if you find anything.. tasty.
+<<set $perch_quest_accepted to true>>
+<<set $talked_to_perch to true>>
+===
+
+title: FishingFairy_Decline
+---
+Perch: What else am I supposed to do? Stand right next to a giant bowl of water and risk falling in? 
+Perch: These wings, cursed be their fluffiness, are not fit for swimming so I'm staying as far away from those pools of death as I can. And that aside, a good huntress makes a prey come to her. 
+Perch: *smiles in a unsettling way*
+<<set $talked_to_perch to true>>
+===
+
+title: FishingFairy_Already_Accepted
+---
+Perch: Did you find anything useful?
+    -> Give fancy cake <<if $fancy_cake is true>>
+        Perch: Genius! Trouts are weak for anything with frosting. This will work like a charm.
+        <<set $perch_quest_completed to true>>
+        <<set $fancy_cake_given to true>>
+    -> Give loaf of bread <<if $loaf_of_bread is true>>
+        Perch: Alright, I'll try this one. But I feel like this might be more of a duck think to eat.
+        <<set $perch_quest_completed to true>>
+        <<set $loaf_of_bread_given to true>>
+    -> Give roast chicken <<if $roast_chicken is true>>
+        Perch: OHHHHH this is what I call a bait befit for a last supper. I better start stretching my muscles to pull in a big one.
+        <<set $perch_quest_completed to true>>
+        <<set $roast_chicken_given to true>>
+    -> Keep looking.
+        Perch: I'll be here for a while. You know where to find me.
+===
+
+title: FishingFairy_Quest_Completed
+---
+<<if $perch_small_fish is false and $perch_medium_fish is false and $perch_large_fish is false>>
+    Perch: *watches the air in front of the fishing rod with maniac anticipation*
+<<elseif $perch_small_fish is true>>
+    <<set $small_fish to true>>
+    Perch: HAHA look at you slimy little thing. How does it feel to be wriggling at the end of my line? I, for my part, have to admit that I am little disappointed in.. well.. in the size of you. 
+    Perch: *jumps up in surprise as she notices you* OH I didn't see you there. Look what I caught! I was thinking about giving it to you, since you provided the bait and all. Here, take it.
+    \[A small fish was added to you inventory.\]
+<<elseif $perch_medium_fish is true>>
+    <<set $medium_fish to true>>
+    Perch: You are ugly and nobody likes you! Floating around your murky waters, feeling all high and mighty. Well, look were that landed you! HA your stupid fins are not going to help you escape now. 
+    Perch: *jumps up in surprise as she notices you* OH I didn't see you there. Look what I caught! I was thinking about giving it to you, since you provided the bait and all. Here, take it.
+    \[A normal fish was added to you inventory.\]
+<<elseif $perch_large_fish is true>>
+    <<set $large_fish to true>>
+    Perch: Seems like I've caught the leader of the whole operation *grins*. I've been waiting for the moment where I could finally tell you a piece of my mind, sir! 
+    Perch: Let's start with the weird sounds that you guys make.. 
+    Perch: *jumps up in surprise as she notices you* OH I didn't see you there. Look what I caught! I was thinking about giving it to you, since you provided the bait and all. Here, take it.
+    \[A big fish was added to you inventory.\]
+<<endif>>
+===
