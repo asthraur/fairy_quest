@@ -4,19 +4,25 @@
 
 <p align="center">In a faraway kingdom where fairies are better known for mischief than literature, one anxious little scholar sets out to do the impossible: sell her Fairy Atlas to a human king.</p>
 
-<p align="center"><img width="794" height="444" alt="grafik" src="https://github.com/user-attachments/assets/ab8a554f-e676-4f95-86a9-def38cd34337" /></p>
+<p align="center"><img width="1842" height="1031" alt="grafik" src="https://github.com/user-attachments/assets/eab67391-b25f-450f-bc63-7824b6d307c5" />
+</p>
 
 <p align="center">Alas, her sales pitch spirals into an accidental royal engagement thanks to the unexpected arrival of the war-weary princess and the scheming of her brothers. Neither the fairy nor the princess asked for this. Our fairy however has heard only one thing: *they might actually buy the book!!!*</p>
+
+<p align="center"><b>You can download an play the game yourself! Just visit:</b> https://ruecirque.itch.io/fairy-quest</p>
 
 <p align="center"><img img width="251" height="125" alt="grafik" src="https://github.com/user-attachments/assets/8471bad1-9c85-4211-9ce7-26791ce5f675" /></p>
 
 <p align="center">Fairy Quest is an isometric 2.5D adventure game- part exploration, part dating sim, part diplomacy. Walking through a dreamy hand painted world, you get to explore both the human lands and the strange fairy realm. Complete curious little quests, befriend villagers and fairies and the things in between. Let a chicken dance, and challenge ancient horrors.</p>
 
-<p align="center"><img width="794" height="440" alt="grafik" src="https://github.com/user-attachments/assets/39ff19d4-c8fe-4b51-8526-bbe289e06249" /></p>
+<p align="center"><img width="2559" height="1419" alt="grafik" src="https://github.com/user-attachments/assets/4a02266d-42e3-4665-afa0-23904c59cb5c" />
+</p>
 
-<p align="center"><img width="794" height="434" alt="grafik" src="https://github.com/user-attachments/assets/9224aa98-f3cd-41a7-b0a9-e5cc7a888f18" /></p>
+<p align="center"><img width="2043" height="1119" alt="grafik" src="https://github.com/user-attachments/assets/115f9d76-03f3-4bd7-825c-319885a1817a" />
+</p>
 
-<p align="center"><img width="794" height="438" alt="grafik" src="https://github.com/user-attachments/assets/e2abbd82-d753-454c-8239-3d5c212f3c5d" /></p>
+<p align="center"><img width="2559" height="1414" alt="grafik" src="https://github.com/user-attachments/assets/df4b591b-af60-47cc-97eb-d8f084fed4d8" />
+</p>
 
 <p align="center">Then maybe, just maybe- you might even live happily ever after.</p>
 
